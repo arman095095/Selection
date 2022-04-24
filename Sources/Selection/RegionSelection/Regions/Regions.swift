@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct Regions {
+final class Regions {
     
-    static let countries: [Country] = Country.allCases
+    let countries: [Country] = Country.allCases
     
-    static func cities(at country: Country) -> [City] {
+    func cities(at country: Country) -> [City] {
         switch country {
         case .ru:
-            let response = Bundle.main.decoder(model: [Bundle.ResponseModelCitiesOther].self,
+            let response = Bundle(for: type(of: self)).decoder(model: [Bundle.ResponseModelCitiesOther].self,
                                                url: "\(country.rawValue).json")
             return response.map { City(name: $0.city) }
         default:
-            let response = Bundle.main.decoder(model: Bundle.ResponseModelCities.self,
+            let response = Bundle(for: type(of: self)).decoder(model: Bundle.ResponseModelCities.self,
                                                url: "\(country.rawValue).json")
             return response.items.map { City(name: $0.name) }
         }

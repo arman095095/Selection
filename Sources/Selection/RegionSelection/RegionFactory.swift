@@ -34,7 +34,7 @@ struct RegionFactory: SelectionModelProtocol {
     func nextPage(with item: String, selectedCount: Int) -> SelectionPageModelProtocol? {
         guard selectedCount != pagesCount else { return nil }
         guard let country = Regions.Country(name: item) else { return nil }
-        let cities = Regions.cities(at: country)
+        let cities = Regions().cities(at: country)
         return CityFactory(cities: cities)
     }
 }
