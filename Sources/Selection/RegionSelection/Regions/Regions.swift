@@ -15,11 +15,11 @@ final class Regions {
     func cities(at country: Country) -> [City] {
         switch country {
         case .ru:
-            let response = Bundle(for: type(of: self)).decoder(model: [Bundle.ResponseModelCitiesOther].self,
+            let response = Bundle.main.decoder(model: [Bundle.ResponseModelCitiesOther].self,
                                                url: "\(country.rawValue).json")
             return response.map { City(name: $0.city) }
         default:
-            let response = Bundle(for: type(of: self)).decoder(model: Bundle.ResponseModelCities.self,
+            let response = Bundle.main.decoder(model: Bundle.ResponseModelCities.self,
                                                url: "\(country.rawValue).json")
             return response.items.map { City(name: $0.name) }
         }
@@ -96,7 +96,8 @@ extension Bundle {
         let city: String
     }
     
-    func decoder<T:Decodable>(model:T.Type,url: String) -> T {
+    func decoder<T: Decodable>(model: T.Type, url: String) -> T {
+        print(self.url(forResource: url, withExtension: nil))
         guard let url = self.url(forResource: url, withExtension: nil) else { fatalError("incorrect adress") }
         guard let data = try? Data.init(contentsOf: url) else { fatalError("error loading") }
         guard let load = try? JSONDecoder().decode(T.self, from: data) else { fatalError("error decoding") }
