@@ -9,7 +9,7 @@ import Foundation
 import Module
 
 public protocol SelectionModuleProtocol {
-    func rootModule(model: SelectionModelProtocol) -> ModuleProtocol
+    func rootModule(model: SelectionModelProtocol) -> SelectionModule
 }
 
 protocol RouteMapPrivate {
@@ -18,7 +18,7 @@ protocol RouteMapPrivate {
 
 public final class SelectionUserStory: SelectionModuleProtocol {
     private var outputWrapper: RootModuleOutputWrapper?
-    public func rootModule(model: SelectionModelProtocol) -> ModuleProtocol {
+    public func rootModule(model: SelectionModelProtocol) -> SelectionModule {
         let module = RootModuleOutputWrapperAssembly.assembly(model: model,
                                                               routeMap: self)
         outputWrapper = module.input as? RootModuleOutputWrapper
@@ -29,7 +29,7 @@ public final class SelectionUserStory: SelectionModuleProtocol {
 extension SelectionUserStory: RouteMapPrivate {
     func selectionPageModule(model: SelectionPageModelProtocol) -> SelectionPageModule {
         let module = SelectionPageAssembly.makeModule(model: model, routeMap: self)
-        module._output = outputWrapper
+        module.output = outputWrapper
         return module
     }
 }

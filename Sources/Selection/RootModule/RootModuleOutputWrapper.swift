@@ -13,7 +13,7 @@ public protocol SelectionModelProtocol {
     func nextPage(with item: String, selectedCount: Int) -> SelectionPageModelProtocol?
 }
 
-protocol SelectionModuleInput {
+public protocol SelectionModuleInput {
     
 }
 
@@ -37,7 +37,7 @@ final class RootModuleOutputWrapper {
     func view() -> UIViewController {
         let model = model.startPageModel
         let module = routeMap.selectionPageModule(model: model)
-        module._output = self
+        module.output = self
         return module.view
     }
 }

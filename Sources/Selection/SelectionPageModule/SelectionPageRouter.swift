@@ -25,15 +25,15 @@ final class SelectionPageRouter {
 extension SelectionPageRouter: SelectionPageRouterInput {
     func openNextPage(model: SelectionPageModelProtocol) {
         let module = routeMap.selectionPageModule(model: model)
-        self.push(module)
+        self.push(module.view)
     }
 }
 
 private extension SelectionPageRouter {
-    func push(_ module: ModuleProtocol) {
+    func push(_ view: UIViewController) {
         let pushTransition = PushTransition()
         pushTransition.source = transitionHandler
-        pushTransition.destination = module.view
+        pushTransition.destination = view
         pushTransition.perform(nil)
     }
 }
