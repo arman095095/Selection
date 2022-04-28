@@ -20,6 +20,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Selection",
-            dependencies: [.product(name: "Module", package: "Module")]),
+            dependencies: [.product(name: "Module", package: "Module")],
+            resources: [.process("Resources")])
     ]
 )
+
+

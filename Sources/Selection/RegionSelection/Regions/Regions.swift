@@ -15,11 +15,11 @@ final class Regions {
     func cities(at country: Country) -> [City] {
         switch country {
         case .ru:
-            let response = Bundle.main.decoder(model: [Bundle.ResponseModelCitiesOther].self,
+            let response = Bundle.module.decoder(model: [CityResponseModelOther].self,
                                                url: "\(country.rawValue).json")
             return response.map { City(name: $0.city) }
         default:
-            let response = Bundle.main.decoder(model: Bundle.ResponseModelCities.self,
+            let response = Bundle.module.decoder(model: CountryResponseModel.self,
                                                url: "\(country.rawValue).json")
             return response.items.map { City(name: $0.name) }
         }
@@ -80,24 +80,23 @@ extension Regions {
     }
 }
 
+// MARK: - Welcome
+struct CountryResponseModel: Decodable {
+    let items: [CityResponseModel]
+}
+
+// MARK: - Item
+struct CityResponseModel: Decodable {
+    let name: String
+}
+
+struct CityResponseModelOther: Decodable {
+    let city: String
+}
+
 extension Bundle {
     
-    // MARK: - Welcome
-    struct ResponseModelCities: Decodable {
-        let items: [Cities]
-    }
-
-    // MARK: - Item
-    struct Cities: Decodable {
-        let name: String
-    }
-    
-    struct ResponseModelCitiesOther: Decodable {
-        let city: String
-    }
-    
     func decoder<T: Decodable>(model: T.Type, url: String) -> T {
-        print(self.url(forResource: url, withExtension: nil))
         guard let url = self.url(forResource: url, withExtension: nil) else { fatalError("incorrect adress") }
         guard let data = try? Data.init(contentsOf: url) else { fatalError("error loading") }
         guard let load = try? JSONDecoder().decode(T.self, from: data) else { fatalError("error decoding") }
