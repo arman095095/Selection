@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "module",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Module.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "c57df1fc282f9f03dce067ec527aa10fa4cefbb6"
+      }
+    }
+  ],
+  "version" : 2
+}
