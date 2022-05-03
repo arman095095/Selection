@@ -47,6 +47,7 @@ extension RootModuleOutputWrapper: SelectionModuleInput { }
 extension RootModuleOutputWrapper: SelectionPageModuleOutput {
 
     func selectionCanceled() {
+        guard !selectedItems.isEmpty else { return }
         selectedItems.removeLast()
     }
     
