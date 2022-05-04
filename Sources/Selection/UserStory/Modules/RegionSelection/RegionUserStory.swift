@@ -8,7 +8,7 @@
 import Foundation
 import Module
 
-public protocol RegionSelectionModuleProtocol {
+public protocol RegionSelectionRouteMap {
     func countryAndCityModule() -> SelectionModule
 }
 
@@ -20,7 +20,7 @@ public final class RegionUserStory {
     }
 }
 
-extension RegionUserStory: RegionSelectionModuleProtocol {
+extension RegionUserStory: RegionSelectionRouteMap {
     public func countryAndCityModule() -> SelectionModule {
         let regionFactory = RegionFactory(flow: .countryAndCity)
         return parentUserStory.rootModule(model: regionFactory)
