@@ -7,19 +7,7 @@
 
 import Foundation
 import UIKit
-
-public protocol SelectionModelProtocol {
-    var startPageModel: SelectionPageModelProtocol { get }
-    func nextPage(with item: String, selectedCount: Int) -> SelectionPageModelProtocol?
-}
-
-public protocol SelectionModuleInput {
-    
-}
-
-public protocol SelectionModuleOutput: AnyObject {
-    func selectionCompleted(items: [String])
-}
+import SelectionRouteMap
 
 final class RootModuleOutputWrapper {
     weak var output: SelectionModuleOutput?

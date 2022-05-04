@@ -8,6 +8,7 @@
 
 import UIKit
 import Module
+import SelectionRouteMap
 
 protocol SelectionPageRouterInput: AnyObject {
     func openNextPage(model: SelectionPageModelProtocol)

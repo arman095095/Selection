@@ -7,6 +7,7 @@
 
 import Foundation
 import Module
+import SelectionRouteMap
 
 public protocol RegionSelectionRouteMap {
     func countryAndCityModule() -> SelectionModule

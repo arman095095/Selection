@@ -7,10 +7,7 @@
 
 import Foundation
 import Module
-
-public protocol SelectionModuleProtocol {
-    func rootModule(model: SelectionModelProtocol) -> SelectionModule
-}
+import SelectionRouteMap
 
 protocol RouteMapPrivate {
     func selectionPageModule(model: SelectionPageModelProtocol) -> SelectionPageModule

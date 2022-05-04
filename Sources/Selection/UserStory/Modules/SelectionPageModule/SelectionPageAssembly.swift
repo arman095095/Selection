@@ -8,8 +8,7 @@
 
 import UIKit
 import Module
-
-typealias SelectionPageModule = Module<SelectionPageModuleInput, SelectionPageModuleOutput>
+import SelectionRouteMap
 
 enum SelectionPageAssembly {
     static func makeModule(model: SelectionPageModelProtocol,

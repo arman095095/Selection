@@ -5,10 +5,12 @@ import PackageDescription
 
 private let remoteDependencies: [Package.Dependency] = [
     .package(url: "https://github.com/arman095095/Module.git", branch: "develop"),
+    .package(url: "https://github.com/arman095095/SelectionRouteMap.git", branch: "develop")
 ]
 
 private let localDependencies: [Package.Dependency] = [
     .package(path: "/Users/armancarhcan/Desktop/Workdir/Module"),
+    .package(path: "/Users/armancarhcan/Desktop/Workdir/SelectionRouteMap"),
 ]
 
 let isDev = true
@@ -29,7 +31,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Selection",
-            dependencies: [.product(name: "Module", package: "Module")],
+            dependencies: [.product(name: "Module", package: "Module"),
+                           .product(name: "SelectionRouteMap", package: "SelectionRouteMap")],
             resources: [.process("Resources")])
     ]
 )

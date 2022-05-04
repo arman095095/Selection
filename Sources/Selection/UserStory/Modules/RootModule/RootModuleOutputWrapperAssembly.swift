@@ -7,8 +7,7 @@
 
 import Foundation
 import Module
-
-public typealias SelectionModule = Module<SelectionModuleInput, SelectionModuleOutput>
+import SelectionRouteMap
 
 enum RootModuleOutputWrapperAssembly {
     static func assembly(model: SelectionModelProtocol,

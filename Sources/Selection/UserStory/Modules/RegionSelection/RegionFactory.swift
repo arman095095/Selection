@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SelectionRouteMap
 
 struct RegionFactory: SelectionModelProtocol {
     

@@ -7,13 +7,7 @@
 //
 
 import UIKit
-
-protocol SelectionPageModuleOutput: AnyObject {
-    func itemSelected(item: String) -> SelectionPageModelProtocol?
-    func selectionCanceled()
-}
-
-protocol SelectionPageModuleInput: AnyObject { }
+import SelectionRouteMap
 
 protocol SelectionPageViewOutput: AnyObject {
     var numberOfRows: Int { get }
@@ -23,11 +17,6 @@ protocol SelectionPageViewOutput: AnyObject {
     func itemName(at indexPath: IndexPath) -> String
     func filter(text: String)
     func backButtonAction()
-}
-
-public protocol SelectionPageModelProtocol {
-    var title: String { get }
-    var list: [String] { get }
 }
 
 struct SelectionPageModel: SelectionPageModelProtocol {
