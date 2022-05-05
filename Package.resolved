@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "module",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Module.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "567093c53c8ceb0e79078cd476bce286b023f8cd"
+      }
+    },
+    {
+      "identity" : "selectionroutemap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/SelectionRouteMap.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "d4ec1ef092bac46be4e75357e3b6ac13966109c2"
+      }
+    },
+    {
+      "identity" : "swinject",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Swinject/Swinject.git",
+      "state" : {
+        "revision" : "f10b6e9ebff440f985c43008f7c2d097639fcb81",
+        "version" : "2.8.1"
+      }
+    }
+  ],
+  "version" : 2
+}
