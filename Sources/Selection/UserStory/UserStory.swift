@@ -8,13 +8,20 @@
 import Foundation
 import Module
 import SelectionRouteMap
+import Swinject
 
 protocol RouteMapPrivate {
     func selectionPageModule(model: SelectionPageModelProtocol) -> SelectionPageModule
 }
 
 public final class SelectionUserStory: SelectionModuleProtocol {
+
+    private let container: Container
     private var outputWrapper: RootModuleOutputWrapper?
+
+    public init(container: Container) {
+        self.container = container
+    }
     public func rootModule(model: SelectionModelProtocol) -> SelectionModule {
         let module = RootModuleOutputWrapperAssembly.assembly(model: model,
                                                               routeMap: self)

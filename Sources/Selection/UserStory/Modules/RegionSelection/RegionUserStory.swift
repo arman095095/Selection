@@ -8,16 +8,13 @@
 import Foundation
 import Module
 import SelectionRouteMap
-
-public protocol RegionSelectionRouteMap {
-    func countryAndCityModule() -> SelectionModule
-}
+import Swinject
 
 public final class RegionUserStory {
     private let parentUserStory: SelectionModuleProtocol
 
-    public init() {
-        self.parentUserStory = SelectionUserStory()
+    public init(container: Container) {
+        self.parentUserStory = SelectionUserStory(container: container)
     }
 }
 
