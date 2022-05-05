@@ -5,7 +5,8 @@ import PackageDescription
 
 private let dependencies: [Package.Dependency] = [
     .package(url: "https://github.com/arman095095/Module.git", branch: "develop"),
-    .package(url: "https://github.com/arman095095/SelectionRouteMap.git", branch: "develop")
+    .package(url: "https://github.com/arman095095/SelectionRouteMap.git", branch: "develop"),
+    .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
 ]
 
 let package = Package(
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "Selection",
             dependencies: [.product(name: "Module", package: "Module"),
-                           .product(name: "SelectionRouteMap", package: "SelectionRouteMap")],
+                           .product(name: "SelectionRouteMap", package: "SelectionRouteMap"),
+                           .product(name: "Swinject", package: "Swinject")],
             resources: [.process("Resources")])
     ]
 )
